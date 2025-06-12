@@ -1,0 +1,106 @@
+//Exercicios aula 09 POO
+using System;
+
+struct Retangulo
+{
+    public double Largura;
+    public double Altura;
+
+    public Retangulo(double largura, double altura)
+    {
+        Largura = largura;
+        Altura = altura;
+    }
+
+    public double Area()
+    {
+        return Largura * Altura;
+    }
+
+    public double Perimetro()
+    {
+        return 2 * (Largura + Altura);
+    }
+}
+
+struct Data
+{
+    public int Dia;
+    public int Mes;
+    public int Ano;
+
+    public Data(int dia, int mes, int ano)
+    {
+        Dia = dia;
+        Mes = mes;
+        Ano = ano;
+    }
+
+    public bool DataValida()
+    {
+        if (Ano < 1 || Mes < 1 || Mes > 12 || Dia < 1) return false;
+        int[] diasNoMes = { 31, DateTime.IsLeapYear(Ano) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        return Dia <= diasNoMes[Mes - 1];
+    }
+}
+
+struct Cor
+{
+    public byte R;
+    public byte G;
+    public byte B;
+
+    public Cor(byte r, byte g, byte b)
+    {
+        R = r;
+        G = g;
+        B = b;
+    }
+
+    public string ParaHexadecimal()
+    {
+        return $"#{R:X2}{G:X2}{B:X2}";
+    }
+}
+
+struct Produto
+{
+    public string Nome;
+    public double Preco;
+    public int Quantidade;
+
+    public Produto(string nome, double preco, int quantidade)
+    {
+        Nome = nome;
+        Preco = preco;
+        Quantidade = quantidade;
+    }
+
+    public double ValorTotalEstoque()
+    {
+        return Preco * Quantidade;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // 1. Retangulo
+        var ret = new Retangulo(3.0, 4.0);
+        Console.WriteLine($"Area: {ret.Area()}");
+        Console.WriteLine($"Perimetro: {ret.Perimetro()}");
+
+        // 2. Data
+        var data = new Data(29, 2, 2024);
+        Console.WriteLine($"Data valida? {data.DataValida()}");
+
+        // 3. Cor
+        var cor = new Cor(255, 165, 0);
+        Console.WriteLine($"Cor hexadecimal: {cor.ParaHexadecimal()}");
+
+        // 4. Produto
+        var produto = new Produto("Caneta", 1.50, 100);
+        Console.WriteLine($"Valor total em estoque: {produto.ValorTotalEstoque()} reais");
+    }
+}
