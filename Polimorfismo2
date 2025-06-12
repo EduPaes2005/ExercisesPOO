@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+
+// Classe base Funcionario
+public class Funcionario
+{
+    public string Nome { get; set; }
+    public double SalarioBase { get; set; }
+
+    // Método virtual pode ser sobrescrito
+    public virtual double CalcularSalario()
+    {
+        return SalarioBase;
+    }
+}
+
+// Classe Gerente com salário 20% maior
+public class Gerente : Funcionario
+{
+    public override double CalcularSalario()
+    {
+        return SalarioBase * 1.2;
+    }
+}
+
+// Classe Desenvolvedor com salário 10% maior
+public class Desenvolvedor : Funcionario
+{
+    public override double CalcularSalario()
+    {
+        return SalarioBase * 1.1;
+    }
+}
+
+// Teste com lista polimórfica
+class Program
+{
+    static void Main()
+    {
+        List<Funcionario> funcionarios = new List<Funcionario>
+        {
+            new Gerente { Nome = "Carlos", SalarioBase = 5000 },
+            new Desenvolvedor { Nome = "Ana", SalarioBase = 4000 },
+            new Gerente { Nome = "Fernanda", SalarioBase = 5500 },
+            new Desenvolvedor { Nome = "Bruno", SalarioBase = 4200 }
+        };
+
+        foreach (var funcionario in funcionarios)
+        {
+            Console.WriteLine($"Funcionário: {funcionario.Nome}, Salário: {funcionario.CalcularSalario():C}");
+        }
+    }
+}

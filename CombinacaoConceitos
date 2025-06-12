@@ -1,0 +1,44 @@
+public class ContaBancaria
+{
+    public string NumeroConta { get; set; }
+    public decimal Saldo { get; protected set; }
+
+    public ContaBancaria(string numeroConta, decimal saldoInicial)
+    {
+        NumeroConta = numeroConta;
+        Saldo = saldoInicial;
+    }
+
+    public virtual void Depositar(decimal valor)
+    {
+        Saldo += valor;
+    }
+
+    public virtual void Sacar(decimal valor)
+    {
+        if (valor <= Saldo)
+        {
+            Saldo -= valor;
+        }
+    }
+}
+
+public class ContaPoupanca : ContaBancaria
+{
+    public decimal TaxaJuros { get; set; }
+
+    public ContaPoupanca(string numeroConta, decimal saldoInicial, decimal taxaJuros)
+        : base(numeroConta, saldoInicial)
+    {
+        TaxaJuros = taxaJuros;
+    }
+
+    public override void Sacar(decimal valor)
+    {
+        decimal total = valor + (valor * TaxaJuros);
+        if (total <= Saldo)
+        {
+            Saldo -= total;
+        }
+    }
+}

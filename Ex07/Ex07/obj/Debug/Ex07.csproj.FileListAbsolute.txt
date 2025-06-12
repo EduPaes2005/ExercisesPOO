@@ -1,0 +1,7 @@
+C:\Users\Aluno\source\repos\Ex07\Ex07\bin\Debug\Ex07.exe.config
+C:\Users\Aluno\source\repos\Ex07\Ex07\bin\Debug\Ex07.exe
+C:\Users\Aluno\source\repos\Ex07\Ex07\bin\Debug\Ex07.pdb
+C:\Users\Aluno\source\repos\Ex07\Ex07\obj\Debug\Ex07.csproj.AssemblyReference.cache
+C:\Users\Aluno\source\repos\Ex07\Ex07\obj\Debug\Ex07.csproj.CoreCompileInputs.cache
+C:\Users\Aluno\source\repos\Ex07\Ex07\obj\Debug\Ex07.exe
+C:\Users\Aluno\source\repos\Ex07\Ex07\obj\Debug\Ex07.pdb

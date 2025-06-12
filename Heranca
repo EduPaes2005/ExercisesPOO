@@ -1,0 +1,67 @@
+// Classe base Veiculo
+public class Veiculo
+{
+    public string Marca { get; set; }
+    public string Modelo { get; set; }
+
+    // Construtor com marca e modelo
+    public Veiculo(string marca, string modelo)
+    {
+        Marca = marca;
+        Modelo = modelo;
+    }
+
+    // Método virtual que pode ser sobrescrito
+    public virtual void MostrarInfo()
+    {
+        Console.WriteLine($"Marca: {Marca}, Modelo: {Modelo}");
+    }
+
+    public virtual void Acelerar()
+    {
+        Console.WriteLine("O veículo está acelerando.");
+    }
+}
+
+// Classe derivada Carro
+public class Carro : Veiculo
+{
+    public int QtdPortas { get; set; }
+
+    public Carro(string marca, string modelo, int qtdPortas) : base(marca, modelo)
+    {
+        QtdPortas = qtdPortas;
+    }
+
+    // Sobrescreve MostrarInfo com detalhes do carro
+    public override void MostrarInfo()
+    {
+        Console.WriteLine($"Carro - Marca: {Marca}, Modelo: {Modelo}, Portas: {QtdPortas}");
+    }
+
+    public override void Acelerar()
+    {
+        Console.WriteLine("O carro está acelerando rapidamente com o motor.");
+    }
+}
+
+// Classe derivada Moto
+public class Moto : Veiculo
+{
+    public bool TemCarenagem { get; set; }
+
+    public Moto(string marca, string modelo, bool temCarenagem) : base(marca, modelo)
+    {
+        TemCarenagem = temCarenagem;
+    }
+
+    public override void MostrarInfo()
+    {
+        Console.WriteLine($"Moto - Marca: {Marca}, Modelo: {Modelo}, Carenagem: {(TemCarenagem ? "Sim" : "Não")}");
+    }
+
+    public override void Acelerar()
+    {
+        Console.WriteLine("A moto está acelerando com o ronco do motor.");
+    }
+}

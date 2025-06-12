@@ -1,0 +1,75 @@
+using System;
+using System.Collections.Generic;
+
+// Classe base Produto
+public class Produto
+{
+    public string Nome { get; set; }
+    public decimal Preco { get; set; }
+
+    public Produto(string nome, decimal preco)
+    {
+        Nome = nome;
+        Preco = preco;
+    }
+
+    // Método virtual
+    public virtual void MostrarDetalhes()
+    {
+        Console.WriteLine($"Produto: {Nome}, Preço: {Preco:C}");
+    }
+}
+
+// Produto eletrônico com marca
+public class ProdutoEletronico : Produto
+{
+    public string Marca { get; set; }
+
+    public ProdutoEletronico(string nome, decimal preco, string marca)
+        : base(nome, preco)
+    {
+        Marca = marca;
+    }
+
+    public override void MostrarDetalhes()
+    {
+        Console.WriteLine($"Produto Eletrônico: {Nome}, Marca: {Marca}, Preço: {Preco:C}");
+    }
+}
+
+// Produto alimentício com validade
+public class ProdutoAlimenticio : Produto
+{
+    public DateTime DataValidade { get; set; }
+
+    public ProdutoAlimenticio(string nome, decimal preco, DateTime dataValidade)
+        : base(nome, preco)
+    {
+        DataValidade = dataValidade;
+    }
+
+    public override void MostrarDetalhes()
+    {
+        Console.WriteLine($"Produto Alimentício: {Nome}, Validade: {DataValidade.ToShortDateString()}, Preço: {Preco:C}");
+    }
+}
+
+// Teste
+class Program
+{
+    static void Main()
+    {
+        List<Produto> produtos = new List<Produto>
+        {
+            new ProdutoEletronico("Smartphone", 1500m, "Samsung"),
+            new ProdutoAlimenticio("Arroz", 10.50m, new DateTime(2025, 12, 31)),
+            new ProdutoEletronico("Notebook", 3500m, "Dell"),
+            new ProdutoAlimenticio("Cereal", 5.75m, new DateTime(2024, 7, 15))
+        };
+
+        foreach (var produto in produtos)
+        {
+            produto.MostrarDetalhes();
+        }
+    }
+}

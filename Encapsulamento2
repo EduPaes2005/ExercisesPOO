@@ -1,0 +1,31 @@
+public class Pessoa
+{
+    private string nome;
+    private int idade;
+
+    public Pessoa(string nome, int idade)
+    {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    // Propriedades públicas com encapsulamento
+    public string Nome
+    {
+        get { return nome; }
+        set { nome = value; }
+    }
+
+    public int Idade
+    {
+        get { return idade; }
+        set { idade = value; }
+    }
+
+    // Método que incrementa a idade
+    public void Aniversario()
+    {
+        idade++;
+        Console.WriteLine($"Feliz aniversário, {nome}! Agora você tem {idade} anos.");
+    }
+}

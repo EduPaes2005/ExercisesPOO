@@ -1,0 +1,36 @@
+public class Endereco
+{
+    private string rua;
+    private int numero;
+    private string cidade;
+
+    public Endereco(string rua, int numero, string cidade)
+    {
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+    }
+
+    public string Rua
+    {
+        get { return rua; }
+        set { rua = value; }
+    }
+
+    public int Numero
+    {
+        get { return numero; }
+        set { numero = value; }
+    }
+
+    public string Cidade
+    {
+        get { return cidade; }
+        set { cidade = value; }
+    }
+
+    public void ExibirEndereco()
+    {
+        Console.WriteLine($"Endereço: {rua}, {numero}, {cidade}");
+    }
+}

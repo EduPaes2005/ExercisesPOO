@@ -1,0 +1,30 @@
+// Classe base Animal
+public class Animal
+{
+    // Propriedade pública com get e set
+    public string Nome { get; set; }
+
+    // Construtor que recebe o nome do animal
+    public Animal(string nome)
+    {
+        Nome = nome;
+    }
+
+    // Método que pode ser sobrescrito por outras classes
+    public virtual void FazerSom()
+    {
+        Console.WriteLine("Som genérico de animal.");
+    }
+}
+
+// Classe derivada Gato que herda de Animal
+public class Gato : Animal
+{
+    public Gato(string nome) : base(nome) { }
+
+    // Sobrescreve o método FazerSom para comportamento específico
+    public override void FazerSom()
+    {
+        Console.WriteLine($"{Nome} diz: Miau.");
+    }
+}

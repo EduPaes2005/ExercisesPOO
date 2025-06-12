@@ -1,0 +1,37 @@
+public class Funcionario
+{
+    private string nome;
+    private decimal salario;
+
+    public Funcionario(string nome, decimal salario)
+    {
+        this.nome = nome;
+        this.salario = salario;
+    }
+
+    public string Nome
+    {
+        get { return nome; }
+        set { nome = value; }
+    }
+
+    public decimal Salario
+    {
+        get { return salario; }
+        set { salario = value; }
+    }
+
+    // Método que aumenta o salário com base em percentual
+    public void AumentarSalario(decimal percentual)
+    {
+        if (percentual > 0)
+        {
+            salario += salario * (percentual / 100);
+            Console.WriteLine($"Salário aumentado para: {salario:C}");
+        }
+        else
+        {
+            Console.WriteLine("Percentual de aumento deve ser positivo.");
+        }
+    }
+}

@@ -1,0 +1,39 @@
+// Classe abstrata Forma
+public abstract class Forma
+{
+    public abstract double CalcularArea();
+}
+
+// Classe derivada Retangulo
+public class Retangulo : Forma
+{
+    public double Largura { get; set; }
+    public double Altura { get; set; }
+
+    public Retangulo(double largura, double altura)
+    {
+        Largura = largura;
+        Altura = altura;
+    }
+
+    public override double CalcularArea()
+    {
+        return Largura * Altura;
+    }
+}
+
+// Classe derivada Circulo
+public class Circulo : Forma
+{
+    public double Raio { get; set; }
+
+    public Circulo(double raio)
+    {
+        Raio = raio;
+    }
+
+    public override double CalcularArea()
+    {
+        return Math.PI * Raio * Raio;
+    }
+}
